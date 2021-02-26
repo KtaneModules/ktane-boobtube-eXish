@@ -62,7 +62,10 @@ public class BoobTubeScript : MonoBehaviour {
             vals.Remove(small);
             correctOrder[j] = Array.IndexOf(chosenWords, words[usedVals[j]]);
         }
-        Debug.LogFormat("[Boob Tube #{0}] The displayed words are:\n{1} {4}\n{2} {5}\n{3} {6}", moduleId, chosenWords[0], chosenWords[1], chosenWords[2], chosenWords[3], chosenWords[4], chosenWords[5]);
+        Debug.LogFormat("[Boob Tube #{0}] The displayed words are:", moduleId);
+        Debug.LogFormat("[Boob Tube #{0}] {1} {2}", moduleId, chosenWords[0], chosenWords[3]);
+        Debug.LogFormat("[Boob Tube #{0}] {1} {2}", moduleId, chosenWords[1], chosenWords[4]);
+        Debug.LogFormat("[Boob Tube #{0}] {1} {2}", moduleId, chosenWords[2], chosenWords[5]);
         Debug.LogFormat("[Boob Tube #{0}] The order to press the displayed words in is: {1}, {2}, {3}, {4}, {5}, and {6}", moduleId, chosenWords[correctOrder[0]], chosenWords[correctOrder[1]], chosenWords[correctOrder[2]], chosenWords[correctOrder[3]], chosenWords[correctOrder[4]], chosenWords[correctOrder[5]]);
     }
 

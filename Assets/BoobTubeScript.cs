@@ -122,10 +122,11 @@ public class BoobTubeScript : MonoBehaviour {
 
     //twitch plays
     #pragma warning disable 414
-    private readonly string TwitchHelpMessage = @"!{0} press <pos1> (pos2)... [Press the word in the specified position (optionally include multiple positions)] | Valid positions are 1-6 from top to bottom, left to right";
+    private readonly string TwitchHelpMessage = @"!{0} press <pos1> (pos2)... [Press the word in the specified position (optionally include multiple positions)] | Valid positions are 1-6 in reading order";
     #pragma warning restore 414
     IEnumerator ProcessTwitchCommand(string command)
     {
+        int[] positions = { 0, 3, 1, 4, 2, 5 };
         string[] parameters = command.Split(' ');
         if (Regex.IsMatch(parameters[0], @"^\s*press\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant))
         {
@@ -152,7 +153,7 @@ public class BoobTubeScript : MonoBehaviour {
                 }
                 for (int i = 1; i < parameters.Length; i++)
                 {
-                    buttons[int.Parse(parameters[i]) - 1].OnInteract();
+                    buttons[positions[int.Parse(parameters[i]) - 1]].OnInteract();
                     yield return new WaitForSeconds(0.1f);
                 }
             }
